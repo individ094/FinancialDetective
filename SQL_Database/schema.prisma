@@ -1,0 +1,49 @@
+generator client {
+  provider             = "prisma-client-py"
+  recursive_type_depth = "5"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:database.db"
+}
+
+// table that contains all the transactions
+model Transactions {
+  id               Int      @id @default(autoincrement())
+  date             DateTime
+  bookingType      String?
+  payee            String?
+  purpose          String?
+  accountNumber    String?
+  amount           Float
+  isBalanceRelevant Boolean
+  category         Category? @relation(fields: [categoryID], references: [id])
+  categoryID       Int?
+  other            String?
+  account          String?
+  @@unique([date, bookingType, payee, purpose, accountNumber, amount, isBalanceRelevant, categoryID, other, account])
+}
+
+// table that contains all the categories and links them to the transactions/Kategorie
+model Category {
+  id          Int          @id @default(autoincrement())
+  category    String       @unique	
+  transaction Transactions[]
+  purpose     Purpose[]
+}
+
+// table that contains different strings that are linked to different categories in the table Category
+// Q: how can i make purposeString and payeeString not unique?
+// a:
+model Purpose {
+  id                Int      @id @default(autoincrement())
+  category          Category @relation(fields: [categoryID], references: [id])
+  categoryID        Int
+  purposeString     String  
+  payeeString       String  
+  @@unique([purposeString, payeeString])
+}
+
+
+

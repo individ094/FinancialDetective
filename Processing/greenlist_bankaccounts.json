@@ -1,0 +1,12 @@
+{
+    "bankaccounts": [
+      {
+        "bank": "YourBank1",
+        "IBAN": "YourIBAN1"
+      },
+      {
+        "bank": "YourBank2",
+        "IBAN": "YourIBAN2"
+      }
+    ]
+  }
