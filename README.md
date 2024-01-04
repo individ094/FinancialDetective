@@ -1,6 +1,6 @@
 # FinancialDetective
 
-Financial Detective is a tool designed to help you gain a comprehensive understanding of your financial transactions from multiple banks. It requires manual download of CSV files from supported banks, parses the data, and loads it into a SQL database. This allows you to analyze your income and expenses, identify trends, and develop strategies to manage your finances more effectively.
+Financial Detective is a tool designed to help you gain a comprehensive understanding of your financial transactions from multiple banks. It requires manual download of CSV files from the user banks. The information is then loaded into a SQL database. Transactions can also be categorised. This allows you to analyze your income and expenses, identify trends, and develop strategies to manage your finances more effectively.
 
 
 ## Key Features
