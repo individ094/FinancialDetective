@@ -117,6 +117,22 @@ class TransactionsUpdater:
 
     # Check for each row if the payee and purpose combination already exists in the database
     # If it does, update the row with the categoryID from the database
+    """
+    Updates each transaction with the correct categoryID from the Category table, if possible.
+
+    Parameters:
+    ----------
+    rows: List[dict]
+        A list of dictionaries, where each dictionary represents a row to be inserted into the purpose database.
+    latest_date: datetime
+        The latest date in the database as a datetime object.
+
+    Returns:
+    ----------
+    rows: List[dict]
+        A list of dictionaries, where each dictionary represents a row of a database. 
+        Each row has been updated with the correct categoryID if found in the purpose database.
+    """
     async def update_categories(self, rows: List[dict], latest_date: datetime) -> List[dict]:
         #connect to the database
         da = Prisma()
