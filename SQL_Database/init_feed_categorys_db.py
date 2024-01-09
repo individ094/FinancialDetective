@@ -5,7 +5,16 @@ from prisma import Prisma
 from datetime import datetime
 #from prisma import PrismaClient
 
+'''
+This script is used to initialize the "Category" database with the first categorys to be able to load your fisrst set of transacitons.
+This script is only used once after setting up a new "Transactions" database.
 
+Categorys that are added here are:
+- None
+- Income
+- Food
+
+'''
 async def main() -> None:
     prisma = Prisma()
     await prisma.connect()
