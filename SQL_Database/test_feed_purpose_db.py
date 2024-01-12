@@ -6,6 +6,10 @@ from datetime import datetime
 #from prisma import PrismaClient
 
 
+"""
+Test database connection to the purpose table.
+"""
+
 async def main() -> None:
     prisma = Prisma()
     await prisma.connect()
